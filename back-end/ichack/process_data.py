@@ -10,6 +10,9 @@ json format
 Assume list of dictionaries 
 '''
 
+import warnings
+warnings.filterwarnings('ignore')
+
 import pandas as pd 
 import numpy as np 
 from urllib.parse import urlparse
@@ -81,7 +84,7 @@ histories = [{
 {
     "id": "26560",
     "lastVisitTime": 1706990702922.93,
-    "title": "test - Google Search",
+    "title": "50 Cent  - Google Search",
     "typedCount": 0,
     "url": "https://www.google.com/search?q=test&rlz=1C1VDKB_en-GBGB1068GB1068&oq=test&gs_lcrp=EgZjaHJvbWUyDggAEEUYJxg5GIAEGIoFMgwIARAjGCcYgAQYigUyDAgCEAAYQxiABBiKBTISCAMQABhDGIMBGLEDGIAEGIoFMhAIBBAuGMcBGLEDGNEDGIAEMgoIBRAAGLEDGIAEMgYIBhBFGEEyBggHEEUYPNIBBzM1OWowajeoAgCwAgA&sourceid=chrome&ie=UTF-8",
     "visitCount": 2
@@ -94,7 +97,9 @@ histories = [{
 def process_data(histories: list[dict]) -> dict[str, any]:
     df = pd.DataFrame(histories)
     df["id"] = df["id"].astype(int)
-    print(top_visited_n(5, df))
+    # print(top_visited_n(5, df))
+    # print(top_search_terms_n(5, df))
+    print(most_searched_people(5,df))
     return {
         "top_visited_n": top_visited_n(5, df),
         "top_search_terms_n": top_search_terms_n(5, df),
@@ -125,12 +130,12 @@ def top_visited_n(n, df) -> dict[str, int]:
         .head(n)
     ).to_dict()
     
-
-def top_search_terms_n(n, df) :
-    temp_column = df["url"]
-    apply_col = temp_column.apply(get_query_from_url)
-    df["url"] = apply_col
-    return (df["url"].value_count().head(n)).to_dict() 
+# doesn't work yet 
+def top_search_terms_n(n, df) : 
+    # temp_column = df["url"]
+    # apply_col = temp_column.apply(get_query_from_url)
+    # df["url"] = apply_col
+    return (df["title"].value_counts().sort_values(ascending=False).head(n)).to_dict() 
     
 
 def incognito_search(df) :
@@ -154,9 +159,24 @@ def political_views(df) :
     # searches of any polictically related topic and what exactly they have serched for
     pass
 
-def most_searched_people(n, df) :
+
+def get_search_title(title):
+    return title.split("-")[0].strip()
+
+def most_searched_people(n, df):
+    temp_column = df["title"]
+    apply_col = temp_column.apply(get_search_title)
+    df["title"] = apply_col
+    with open('back-end/ichack/famous_people.txt', 'r') as file:
+        famous_people = [line.strip() for line in file]
+    filtered_df = df[df["title"].isin(famous_people)]
+    search_counts = filtered_df["title"].value_counts()
+    sorted_search_counts = search_counts.sort_values(ascending=False)
+    return sorted_search_counts.head(n)
     
+
+def longest_search():   
     pass 
 
-def longest_search():
-    pass 
+
+process_data(histories)
