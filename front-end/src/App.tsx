@@ -1,5 +1,6 @@
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import FingerprintJS from "@fingerprintjs/fingerprintjs"
+import Holder from "./components/holder";
 
 function App() {
 
@@ -15,10 +16,11 @@ function App() {
   });
 
   return (
-    <>
+    <div className=" bg-pink">
       <h1>Your Browser Wrapped</h1>
       <h3>Browser Fingerprint: {fingerprint}</h3>
-    </>
+      <Holder></Holder>
+    </div>
   )
 }
 
