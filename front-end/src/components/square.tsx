@@ -1,5 +1,4 @@
-import { motion, useAnimation } from 'framer-motion';
-import { useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 interface SquareProps {
     color: string;

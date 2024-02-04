@@ -1,22 +1,13 @@
 import "./styles.css";
 import { useRef } from "react";
 import {
-    motion,
-    useScroll,
-    useTransform,
-    MotionValue
+    motion
 } from "framer-motion";
 // import Spline from '@splinetool/react-spline';
 
 
-function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0, 1], [-distance, distance]);
-}
-
 function Page1() {
     const ref = useRef(null);
-    const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 300);
 
     return (
         <section>
@@ -30,7 +21,7 @@ function Page1() {
                     transition={{ delay: 1, duration: 1 }}
                 >
                     <h1 className=" h-20 text-4xl bold w-full justify-center align-middle flex">
-                        Welcome! To your browser wrapped!
+                        Welcome to your browser wrapped!
                     </h1>
                 </motion.div>
             </div>

@@ -29,8 +29,8 @@ export default function Scroller({ result }: ScrollerProps) {
     <>
       <Page1></Page1>
       {/* <WelcomePage></WelcomePage> */}
-      {result && <Page2 topSites={result.top_visited_n}></Page2>}
-      {result && <Page3 top_10_search_terms={result.top_search_terms_n}></Page3>}
+      {result && <Page2 top_visited_n={result.top_visited_n}></Page2>}
+      {result && <Page3 top_search_terms_n={result.top_search_terms_n}></Page3>}
       {result && <RickRolled outliers={result.outliers}></RickRolled>}
       {result && <Celebrity most_searched_people={result.most_searched_people} />}
       {result && <Incognito num={result.incognito_search}></Incognito>}

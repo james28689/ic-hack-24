@@ -41,18 +41,14 @@ function Page2({ top_visited_n }: Page2Props) {
                 </motion.h2>
                 <div className="flex flex-col justify-center align-middle items-center">
                     {top_visited_n && top_visited_n.length > 0 && (
-                        <TopSiteCard url={top_visited_n[0].website} num={top_visited_n[0].visits} delay={2.1} />
+                        <>
+                            <TopSiteCard url={top_visited_n[0].website} num={top_visited_n[0].visits} delay={2.1} />
+                            <TopSiteCard url={top_visited_n[1].website} num={top_visited_n[1].visits} delay={2.2} />
+                            <TopSiteCard url={top_visited_n[2].website} num={top_visited_n[2].visits} delay={2.3} />
+                            <TopSiteCard url={top_visited_n[3].website} num={top_visited_n[3].visits} delay={2.4} />
+                            <TopSiteCard url={top_visited_n[4].website} num={top_visited_n[4].visits} delay={2.5} />
+                        </>
                     )}
-                    <div className="flex flex-col justify-center align-middle items-center">
-                        {top_visited_n && top_visited_n.length > 0 && (
-                            <>
-                                <TopSiteCard url={top_visited_n[1].website} num={top_visited_n[1].visits} delay={2.2} />
-                                <TopSiteCard url={top_visited_n[2].website} num={top_visited_n[2].visits} delay={2.3} />
-                                <TopSiteCard url={top_visited_n[3].website} num={top_visited_n[3].visits} delay={2.4} />
-                                <TopSiteCard url={top_visited_n[4].website} num={top_visited_n[4].visits} delay={2.5} />
-                            </>
-                        )}
-                    </div>
                 </div>
 
             </div>

@@ -1,10 +1,7 @@
 import "./styles.css";
 import { useRef } from "react";
 import {
-    motion,
-    useScroll,
-    useTransform,
-    MotionValue
+    motion
 } from "framer-motion";
 import Term from "./terms/term";
 
@@ -13,18 +10,9 @@ interface Page3Props {
 }
 
 
-function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0, 1], [-distance, distance]);
-}
-
-
 
 function Page3({ top_search_terms_n }: Page3Props) {
     const ref = useRef(null);
-    const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 300);
-    const a = useParallax(scrollYProgress, 200);
-    const b = useParallax(scrollYProgress, 400);
 
     return (
         <section>
@@ -76,7 +64,7 @@ function Page3({ top_search_terms_n }: Page3Props) {
                         style={{ gridRow: 3, gridColumn: 8 }}>
                         <Term text={top_search_terms_n[4].term} num={top_search_terms_n[4].count}></Term>
                     </motion.div>
-                    <motion.div
+                    {/* <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}
                         transition={{ type: "spring", delay: 1.4, duration: 1 }}
@@ -96,7 +84,7 @@ function Page3({ top_search_terms_n }: Page3Props) {
                         transition={{ type: "spring", delay: 1.7, duration: 1 }}
                         style={{ gridRow: 3, gridColumn: 6 }}>
                         <Term text={top_search_terms_n[7].term} num={top_search_terms_n[7].count}></Term>
-                    </motion.div>
+                    </motion.div> */}
                 </div>
             </div>
         </section>
