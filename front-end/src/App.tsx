@@ -16,7 +16,7 @@ function App() {
   });
 
   return (
-    <div className=" bg-pink">
+    <div className="">
       <h1>Your Browser Wrapped</h1>
       <h3>Browser Fingerprint: {fingerprint}</h3>
       <Holder></Holder>
