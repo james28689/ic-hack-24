@@ -42,7 +42,7 @@ def process_data(histories: list[dict]) -> dict[str, any]:
 
     return {
         "top_visited_n": top_visited_n(5, df),
-        "top_search_terms_n": top_search_terms_n(5, df),
+        "top_search_terms_n": top_search_terms_n(10, df),
         "incognito_search": incognito_search(df),
         "most_searched_people": most_searched_people(5, df),
         "timings": generate_timings(histories),
