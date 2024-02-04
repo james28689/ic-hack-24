@@ -10,14 +10,13 @@ body {
     align-items: center;
     font-family: 'Poppins';
     width: 250px; /* Ensure body takes full width */
-    height: 100vh; /* Full viewport height */
+    height: 200px; /* Full viewport height */
     overflow: hidden; /* Hide overflow to ensure no scrolling */
 }
 
 #contentWrapper {
     text-align: center;
     padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for better visibility */
     border-radius: 10px; /* Optional: rounds corners */
     background: white; /* Optional: sets a background color */
     /* Set specific dimensions for the content area */
