@@ -16,6 +16,7 @@ warnings.filterwarnings('ignore')
 import pandas as pd 
 import numpy as np 
 from urllib.parse import urlparse
+import os
 
 histories = [{
     "id": "26564",
@@ -99,7 +100,7 @@ def process_data(histories: list[dict]) -> dict[str, any]:
     df["id"] = df["id"].astype(int)
     # print(top_visited_n(5, df))
     # print(top_search_terms_n(5, df))
-    print(most_searched_people(5,df))
+    # print(most_searched_people(5,df))
     return {
         "top_visited_n": top_visited_n(5, df),
         "top_search_terms_n": top_search_terms_n(5, df),
@@ -167,16 +168,13 @@ def most_searched_people(n, df):
     temp_column = df["title"]
     apply_col = temp_column.apply(get_search_title)
     df["title"] = apply_col
-    with open('back-end/ichack/famous_people.txt', 'r') as file:
+    script_dir = os.path.dirname(__file__)
+    os.chdir(script_dir)
+    with open('famous_people.txt', 'r') as file:
         famous_people = [line.strip() for line in file]
     filtered_df = df[df["title"].isin(famous_people)]
     search_counts = filtered_df["title"].value_counts()
     sorted_search_counts = search_counts.sort_values(ascending=False)
     return sorted_search_counts.head(n)
     
-
-def longest_search():   
-    pass 
-
-
 process_data(histories)
