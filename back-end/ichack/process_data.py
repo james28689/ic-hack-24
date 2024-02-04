@@ -55,7 +55,11 @@ def process_data(histories: list[dict]) -> dict[str, any]:
 # Extracts the domain name from the url
 # e.g. https://www.google.com/search?q=test... -> www.google.com
 def get_domain_from_url(url: str) -> str:
-    return urlparse(url).netloc
+    domain = urlparse(url).netloc
+    # remove www. if it exists
+    if domain.startswith("www."):
+        domain = domain[4:]
+    return domain
 
 
 def get_query_from_url(url):
