@@ -17,6 +17,8 @@ import pandas as pd
 import numpy as np 
 from urllib.parse import urlparse
 import os
+from datetime import datetime, timezone
+from collections import defaultdict, Counter
 
 histories = [{
     "id": "26564",
@@ -95,6 +97,13 @@ histories = [{
 
 ]
 
+
+
+def extract_hour_from_timestamp(timestamp):
+    """Converts timestamp to datetime and extracts the hour."""
+    return datetime.fromtimestamp(timestamp / 1000.0, tz=timezone.utc).hour
+
+
 def process_data(histories: list[dict]) -> dict[str, any]:
     df = pd.DataFrame(histories)
     df["id"] = df["id"].astype(int)
@@ -107,7 +116,8 @@ def process_data(histories: list[dict]) -> dict[str, any]:
         "incognito_search": incognito_search(df),
         "no_incognito_oops": no_incognito_oops(df),
         "political_views": political_views(df),
-        "most_searched_people": most_searched_people(5, df)
+        "most_searched_people": most_searched_people(5, df),
+        "timings": generate_timings(histories)
     }
 
 # Extracts the domain name from the url
@@ -130,6 +140,18 @@ def top_visited_n(n, df) -> dict[str, int]:
         .sort_values(ascending=False)
         .head(n)
     ).to_dict()
+
+def generate_timings(histories):
+
+    timings = defaultdict(lambda: defaultdict(int))
+
+    # Group visits by hour
+    for visit in histories:
+        hour = extract_hour_from_timestamp(visit['lastVisitTime'])
+        timings[hour][get_domain_from_url(visit["url"])] += visit["visitCount"]
+
+    return {k: Counter(timings[k]).most_common(5) for k in timings}
+
     
 # doesn't work yet 
 def top_search_terms_n(n, df) : 
@@ -175,6 +197,6 @@ def most_searched_people(n, df):
     filtered_df = df[df["title"].isin(famous_people)]
     search_counts = filtered_df["title"].value_counts()
     sorted_search_counts = search_counts.sort_values(ascending=False)
-    return sorted_search_counts.head(n)
+    return sorted_search_counts.head(n).to_dict()
     
 process_data(histories)
