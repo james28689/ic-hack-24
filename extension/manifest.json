@@ -4,5 +4,6 @@
   "version": "1.0",
   "description": "Spotify wrapped for your web history!",
   "permissions": ["history"],
-  "action": { "default_popup": "popup.html" }
+  "action": { "default_popup": "popup.html" },
+  "host_permissions": [ "https://ichack24.zeevox.net/" ]
 }
