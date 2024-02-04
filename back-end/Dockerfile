@@ -1,4 +1,4 @@
-FROM python:3.11.4-alpine
+FROM intel/intel-optimized-ml:scikit-learn-2023.1.1-xgboost-1.7.5-pip-base
 
 EXPOSE 8080
 
