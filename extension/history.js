@@ -53,7 +53,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const viewResultsButton = document.getElementById('viewResultsButton');
   const waitingPhrases = document.getElementById('waitingPhrases');
   const loadingContainer = document.querySelector('.loading-container'); // Changed to use class selector
-  const clientId = 'client-fingerprint!!'; // Replace with actual client ID
+  var clientId = "test-client-id";
+  chrome.identity.getProfileUserInfo((userInfo) => {
+      clientId = userInfo.id;
+      processUserHistory(clientId);
+  });
 
   startProcessButton.addEventListener('click', function() {
       startProcessButton.style.display = 'none'; // Hide the start button
@@ -70,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   viewResultsButton.addEventListener('click', function() {
-      window.open('https://nothing-2-834cc.web.app/', '_blank'); // Adjust URL as needed
+      window.open("https://nothing-2-834cc.web.app/?id=" + clientId, '_blank'); // Adjust URL as needed
   });
 });
 

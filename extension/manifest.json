@@ -3,6 +3,6 @@
   "name": "WebWrapped",
   "version": "1.0",
   "description": "Spotify wrapped for your web history!",
-  "permissions": ["history"],
+  "permissions": ["history", "identity", "identity.email"],
   "action": { "default_popup": "popup.html" }
 }

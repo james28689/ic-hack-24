@@ -1,2 +1,4 @@
-const clientId = 'client-fingerprint!!';
-processUserHistory(clientId);
+chrome.identity.getProfileUserInfo((userInfo) => {
+    const clientId = userInfo.id;
+    processUserHistory(clientId);
+});
