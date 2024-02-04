@@ -9,6 +9,7 @@ import Page2 from "./page2";
 import Page3 from "./page3";
 import Result from "../result";
 import RickRolled from "./rick-rolled";
+import Celebrity from "./celebrity";
 
 interface ScrollerProps {
   result: Result | null
@@ -27,9 +28,10 @@ export default function Scroller({ result }: ScrollerProps) {
     <>
       <Page1></Page1>
       {/* <WelcomePage></WelcomePage> */}
-      {result && <Page2 topSites={result.top_5_visited}></Page2>}
-      {result && <Page3 top_10_search_terms={result.top_10_search_terms}></Page3>}
-      <RickRolled rolledCount={12}></RickRolled>
+      {result && <Page2 topSites={result.top_visited_n}></Page2>}
+      {result && <Page3 top_10_search_terms={result.top_search_terms_n}></Page3>}
+      {result && <RickRolled outliers={result.outliers}></RickRolled>}
+      {result && <Celebrity most_searched_people={result.most_searched_people} />}
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );

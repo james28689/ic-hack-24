@@ -12,31 +12,25 @@ const Term = ({ text, num }: TermProps) => {
     const [isHovered, setHovered] = useState(false);
 
     return (
-        <div className="example-container">
+        <div className="example-container bg-opacity-30">
             <motion.div
-                className=" shadow-2xl"
+                className="shadow-blue shadow-md bg-opacity-30"
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
                 whileHover={{ scale: 1 }}
                 whileInView={{ scale: 0.8 }}
                 whileTap={{ scale: 0.8 }} >
-                <div className="flex flex-col justify-center align-middle items-center">
+                <div className="flex flex-col bg-opacity-30 bg-gradient-to-b from-blue to-white  h-full items-center justify-center align-middle ">
                     <div className=" mt-10 text-xl text-center">
                         {text}
                     </div>
-                    <motion.div
-                        className="transition-all"
-                        style={{ opacity: isHovered ? 1 : 0 }}
-                        transition={{ duration: 1 }}
-                    >
-                        <div className=" text-center">
-                            Searched {num} times
-                        </div>
-                    </motion.div>
+                    <div className={`transition-all duration-100 text-center ${isHovered ? "opacity-100" : "opacity-0"}`}>
+                        Searched {num} times
+                    </div>
                 </div>
 
-            </motion.div>
-        </div>
+            </motion.div >
+        </div >
     );
 };
 

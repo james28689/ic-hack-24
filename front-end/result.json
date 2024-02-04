@@ -1,0 +1,531 @@
+{
+    "incognito_search": 0,
+    "most_searched_people": {},
+    "outliers": [
+        "Prince Hisahito of Akishino",
+        "Prince Hisahito of Akishino",
+        "Prince Hisahito of Akishino",
+        "How does Shakespeare present Juliet\u2019s emotions in Act 4 Scene 3",
+        "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435 \u044f \u0432\u0430\u0448\u0430 \u0442\u0435\u0442\u044f !"
+    ],
+    "political_views": null,
+    "timings": {
+        "0": [
+            [
+                "www.instagram.com",
+                319
+            ],
+            [
+                "m.youtube.com",
+                218
+            ],
+            [
+                "outlook.office.com",
+                173
+            ],
+            [
+                "www.google.com",
+                105
+            ],
+            [
+                "platform.openai.com",
+                38
+            ]
+        ],
+        "1": [
+            [
+                "www.instagram.com",
+                210
+            ],
+            [
+                "www.imperial.ac.uk",
+                196
+            ],
+            [
+                "icldance.co.uk",
+                54
+            ],
+            [
+                "www.google.com",
+                47
+            ],
+            [
+                "photos.google.com",
+                22
+            ]
+        ],
+        "2": [
+            [
+                "www.google.com",
+                23
+            ],
+            [
+                "edstem.org",
+                15
+            ],
+            [
+                "www.instagram.com",
+                9
+            ],
+            [
+                "m.youtube.com",
+                9
+            ],
+            [
+                "stackoverflow.com",
+                6
+            ]
+        ],
+        "3": [
+            [
+                "www.instagram.com",
+                45
+            ],
+            [
+                "www.google.com",
+                26
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                14
+            ],
+            [
+                "stackoverflow.com",
+                11
+            ],
+            [
+                "ichack24.zeevox.net",
+                8
+            ]
+        ],
+        "4": [
+            [
+                "www.instagram.com",
+                159
+            ],
+            [
+                "github.com",
+                13
+            ],
+            [
+                "www.imperial.ac.uk",
+                1
+            ],
+            [
+                "m.youtube.com",
+                1
+            ]
+        ],
+        "5": [
+            [
+                "gitlab.doc.ic.ac.uk",
+                6
+            ]
+        ],
+        "6": [
+            [
+                "github.com",
+                38
+            ],
+            [
+                "platform.openai.com",
+                3
+            ]
+        ],
+        "7": [
+            [
+                "www.instagram.com",
+                162
+            ],
+            [
+                "scientia.doc.ic.ac.uk",
+                7
+            ],
+            [
+                "view.highspot.com",
+                4
+            ],
+            [
+                "github.com",
+                4
+            ],
+            [
+                "platform.openai.com",
+                4
+            ]
+        ],
+        "8": [
+            [
+                "www.instagram.com",
+                282
+            ],
+            [
+                "www.google.com",
+                179
+            ],
+            [
+                "view.highspot.com",
+                18
+            ],
+            [
+                "www.boots.com",
+                17
+            ],
+            [
+                "eactivities.union.ic.ac.uk",
+                4
+            ]
+        ],
+        "9": [
+            [
+                "www.instagram.com",
+                199
+            ],
+            [
+                "www.boots.com",
+                93
+            ],
+            [
+                "www.google.com",
+                66
+            ],
+            [
+                "github.com",
+                54
+            ],
+            [
+                "www.linkedin.com",
+                34
+            ]
+        ],
+        "10": [
+            [
+                "www.google.com",
+                185
+            ],
+            [
+                "calendar.google.com",
+                137
+            ],
+            [
+                "edstem.org",
+                79
+            ],
+            [
+                "mail.google.com",
+                64
+            ],
+            [
+                "login.microsoftonline.com",
+                40
+            ]
+        ],
+        "11": [
+            [
+                "www.google.com",
+                336
+            ],
+            [
+                "scientia.doc.ic.ac.uk",
+                97
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                78
+            ],
+            [
+                "calendar.google.com",
+                77
+            ],
+            [
+                "github.com",
+                67
+            ]
+        ],
+        "12": [
+            [
+                "www.google.com",
+                395
+            ],
+            [
+                "www.instagram.com",
+                124
+            ],
+            [
+                "www.imperial.ac.uk",
+                121
+            ],
+            [
+                "photos.google.com",
+                115
+            ],
+            [
+                "10.9.0.1",
+                99
+            ]
+        ],
+        "13": [
+            [
+                "scientia.doc.ic.ac.uk",
+                395
+            ],
+            [
+                "www.google.com",
+                186
+            ],
+            [
+                "edstem.org",
+                184
+            ],
+            [
+                "www.linkedin.com",
+                145
+            ],
+            [
+                "calendar.google.com",
+                97
+            ]
+        ],
+        "14": [
+            [
+                "github.com",
+                258
+            ],
+            [
+                "www.linkedin.com",
+                174
+            ],
+            [
+                "www.google.com",
+                153
+            ],
+            [
+                "hoogle.haskell.org",
+                120
+            ],
+            [
+                "www.facebook.com",
+                110
+            ]
+        ],
+        "15": [
+            [
+                "www.google.com",
+                258
+            ],
+            [
+                "www.instagram.com",
+                197
+            ],
+            [
+                "photos.google.com",
+                195
+            ],
+            [
+                "www.imperial.ac.uk",
+                179
+            ],
+            [
+                "github.com",
+                159
+            ]
+        ],
+        "16": [
+            [
+                "www.google.com",
+                390
+            ],
+            [
+                "calendar.google.com",
+                352
+            ],
+            [
+                "edstem.org",
+                295
+            ],
+            [
+                "www.instagram.com",
+                279
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                181
+            ]
+        ],
+        "17": [
+            [
+                "www.google.com",
+                714
+            ],
+            [
+                "eactivities.union.ic.ac.uk",
+                526
+            ],
+            [
+                "github.com",
+                267
+            ],
+            [
+                "www.instagram.com",
+                151
+            ],
+            [
+                "docs.google.com",
+                124
+            ]
+        ],
+        "18": [
+            [
+                "www.google.com",
+                615
+            ],
+            [
+                "www.instagram.com",
+                140
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                111
+            ],
+            [
+                "github.com",
+                86
+            ],
+            [
+                "www.imperial.ac.uk",
+                71
+            ]
+        ],
+        "19": [
+            [
+                "www.imperial.ac.uk",
+                454
+            ],
+            [
+                "www.instagram.com",
+                304
+            ],
+            [
+                "www.google.com",
+                302
+            ],
+            [
+                "github.com",
+                152
+            ],
+            [
+                "competitor.escrut.com",
+                80
+            ]
+        ],
+        "20": [
+            [
+                "www.instagram.com",
+                447
+            ],
+            [
+                "www.google.com",
+                272
+            ],
+            [
+                "www.glassdoor.co.uk",
+                88
+            ],
+            [
+                "www.linkedin.com",
+                81
+            ],
+            [
+                "m.youtube.com",
+                65
+            ]
+        ],
+        "21": [
+            [
+                "www.google.com",
+                556
+            ],
+            [
+                "www.instagram.com",
+                163
+            ],
+            [
+                "edstem.org",
+                129
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                55
+            ],
+            [
+                "calendar.google.com",
+                47
+            ]
+        ],
+        "22": [
+            [
+                "www.instagram.com",
+                341
+            ],
+            [
+                "felix.zeevox.net",
+                92
+            ],
+            [
+                "www.google.com",
+                51
+            ],
+            [
+                "gitlab.doc.ic.ac.uk",
+                47
+            ],
+            [
+                "github.com",
+                44
+            ]
+        ],
+        "23": [
+            [
+                "www.instagram.com",
+                543
+            ],
+            [
+                "mail.google.com",
+                394
+            ],
+            [
+                "www.google.com",
+                129
+            ],
+            [
+                "www-d7.imperialcollegeunion.org",
+                52
+            ],
+            [
+                "m.youtube.com",
+                42
+            ]
+        ]
+    },
+    "top_search_terms_n": {
+        "CELCAT Calendar": 262,
+        "Google Maps": 571,
+        "Instagram": 1259,
+        "LinkedIn": 147,
+        "Stories \u2022 Instagram": 1512
+    },
+    "top_visited_n": {
+        "eactivities.union.ic.ac.uk": 877,
+        "edstem.org": 952,
+        "github.com": 1432,
+        "www.imperial.ac.uk": 1253,
+        "www.instagram.com": 4274
+    },
+    "typical": [
+        "ssa compiler",
+        "#",
+        "scala fix",
+        "scalatest featurespec",
+        "scala @main with args"
+    ]
+}

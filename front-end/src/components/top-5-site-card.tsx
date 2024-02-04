@@ -1,9 +1,5 @@
-import { useRef } from "react";
 import {
-    motion,
-    useScroll,
-    useTransform,
-    MotionValue
+    motion
 } from "framer-motion";
 
 interface TopSiteCardProps {
@@ -16,7 +12,7 @@ interface TopSiteCardProps {
 function TopSiteCard({ url, num, delay }: TopSiteCardProps) {
     return (
         <motion.div
-            className=" py-2 bg-pink"
+            className="  py-2 bg-gradient-to-r from-pink to-pink2 w-1/3 rounded-md m-1 shadow-purple shadow-2xl"
             initial={{ x: '-100%', opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", delay: delay, duration: 1.7 }}

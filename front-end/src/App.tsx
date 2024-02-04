@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import FingerprintJS from "@fingerprintjs/fingerprintjs"
-import Holder from "./components/holder";
 import Scroller from "./components/scroller";
 import Result from "./result";
+import Spline from '@splinetool/react-spline';
+
 
 function App() {
   const [result, setResult] = useState(null as Result | null);
@@ -19,7 +20,14 @@ function App() {
   }, []);
 
   return (
-    <Scroller result={result}></Scroller>
+    <div>
+      <div className=" fixed z-0 h-screen w-full">
+        <Spline scene="https://prod.spline.design/aQ0d0H09YPl468f1/scene.splinecode" />
+      </div>
+      <div className="z-10">
+        <Scroller result={result}></Scroller>
+      </div>
+    </div>
   )
 }
 

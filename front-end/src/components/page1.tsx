@@ -22,6 +22,7 @@ function Page1() {
         <section>
 
             <div ref={ref}>
+                <img style={{ filter: "invert(1)" }} className="w-20 h-20 pl-10" src="./ichack.svg" alt="" />
                 <div className=" h-48"></div>
                 <motion.div
                     initial={{ opacity: 0 }}

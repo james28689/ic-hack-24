@@ -10,9 +10,11 @@ export default {
       black: '#000',
       white: '#fff',
       purple: "#711DB0",
-      pink: "#C21292",
+      pink: "#FF90BC",
+      pink2: "#FFC0D9",
       orange: "#EF4040",
-      yellow: "#FFA732"
+      yellow: "#FFA732",
+      blue: "#7BD3EA"
     },
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
