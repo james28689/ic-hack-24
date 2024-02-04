@@ -16,6 +16,7 @@ from scipy.spatial.distance import cdist
 from sklearn.cluster import KMeans
 from bs4 import BeautifulSoup
 import re
+from multiprocessing import Pool
 
 
 def fetch_image_url(search_term):
@@ -238,17 +239,22 @@ def get_outlier_list(df):
     return top_n, least_n
 
 
+def cluster_to_jamesobj(cluster: set[str]) -> dict[str, any]:
+    return {
+        "title": categorise(cluster),
+        "count": len(cluster),
+    }
+
+
 def get_cluster_data(history: pd.DataFrame) -> tuple[list[str], list[str]]:
     search_strings = get_search_strings(history)
     clusters: list[set[str]] = cluster2(search_strings, get_embeddings(search_strings))
 
-    return (
-        list(set().union(*clusters[:5])),
-        [
-            {"title": categorise(cluster), "count": len(cluster)}
-            for cluster in clusters[-8:]
-        ],
-    )
+    # use multiprocessing to parallelilse the cluster to jamesobj conversion
+    with Pool() as pool:
+        cluster_jamesobjs = pool.map(cluster_to_jamesobj, clusters[-8:])
+
+    return (list(set().union(*clusters[:5])), cluster_jamesobjs)
 
 
 def get_search_title(title):
