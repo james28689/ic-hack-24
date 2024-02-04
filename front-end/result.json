@@ -4,20 +4,19 @@
     "outliers": [
         "Prince Hisahito of Akishino",
         "Prince Hisahito of Akishino",
-        "Prince Hisahito of Akishino",
         "How does Shakespeare present Juliet\u2019s emotions in Act 4 Scene 3",
-        "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435 \u044f \u0432\u0430\u0448\u0430 \u0442\u0435\u0442\u044f !"
+        "\u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435 \u044f \u0432\u0430\u0448\u0430 \u0442\u0435\u0442\u044f !",
+        "what is a performing art"
     ],
-    "political_views": null,
     "timings": {
         "0": [
             [
-                "www.instagram.com",
-                319
+                "m.youtube.com",
+                435
             ],
             [
-                "m.youtube.com",
-                218
+                "www.instagram.com",
+                378
             ],
             [
                 "outlook.office.com",
@@ -28,8 +27,8 @@
                 105
             ],
             [
-                "platform.openai.com",
-                38
+                "github.com",
+                36
             ]
         ],
         "1": [
@@ -42,34 +41,34 @@
                 196
             ],
             [
-                "icldance.co.uk",
-                54
-            ],
-            [
                 "www.google.com",
                 47
             ],
             [
                 "photos.google.com",
                 22
+            ],
+            [
+                "m.youtube.com",
+                19
             ]
         ],
         "2": [
             [
                 "www.google.com",
-                23
+                21
             ],
             [
                 "edstem.org",
                 15
             ],
             [
-                "www.instagram.com",
+                "m.youtube.com",
                 9
             ],
             [
-                "m.youtube.com",
-                9
+                "www.instagram.com",
+                8
             ],
             [
                 "stackoverflow.com",
@@ -101,31 +100,51 @@
         "4": [
             [
                 "www.instagram.com",
-                159
+                43
+            ],
+            [
+                "platform.openai.com",
+                39
             ],
             [
                 "github.com",
-                13
+                14
             ],
             [
-                "www.imperial.ac.uk",
-                1
+                "www.google.com",
+                8
             ],
             [
-                "m.youtube.com",
-                1
+                "cookbook.openai.com",
+                4
             ]
         ],
         "5": [
             [
+                "www.google.com",
+                16
+            ],
+            [
+                "community.openai.com",
+                10
+            ],
+            [
+                "platform.openai.com",
+                8
+            ],
+            [
                 "gitlab.doc.ic.ac.uk",
                 6
+            ],
+            [
+                "stackoverflow.com",
+                3
             ]
         ],
         "6": [
             [
                 "github.com",
-                38
+                53
             ],
             [
                 "platform.openai.com",
@@ -135,29 +154,29 @@
         "7": [
             [
                 "www.instagram.com",
-                162
+                164
+            ],
+            [
+                "edstem.org",
+                31
             ],
             [
                 "scientia.doc.ic.ac.uk",
                 7
             ],
             [
+                "www.google.com",
+                5
+            ],
+            [
                 "view.highspot.com",
-                4
-            ],
-            [
-                "github.com",
-                4
-            ],
-            [
-                "platform.openai.com",
                 4
             ]
         ],
         "8": [
             [
                 "www.instagram.com",
-                282
+                336
             ],
             [
                 "www.google.com",
@@ -165,21 +184,21 @@
             ],
             [
                 "view.highspot.com",
-                18
+                19
             ],
             [
                 "www.boots.com",
                 17
             ],
             [
-                "eactivities.union.ic.ac.uk",
-                4
+                "www.linkedin.com",
+                10
             ]
         ],
         "9": [
             [
                 "www.instagram.com",
-                199
+                254
             ],
             [
                 "www.boots.com",
@@ -194,8 +213,8 @@
                 54
             ],
             [
-                "www.linkedin.com",
-                34
+                "mail.google.com",
+                30
             ]
         ],
         "10": [
@@ -208,12 +227,12 @@
                 137
             ],
             [
-                "edstem.org",
-                79
-            ],
-            [
                 "mail.google.com",
                 64
+            ],
+            [
+                "www.instagram.com",
+                41
             ],
             [
                 "login.microsoftonline.com",
@@ -249,7 +268,7 @@
             ],
             [
                 "www.instagram.com",
-                124
+                182
             ],
             [
                 "www.imperial.ac.uk",
@@ -336,12 +355,12 @@
                 390
             ],
             [
-                "calendar.google.com",
+                "edstem.org",
                 352
             ],
             [
-                "edstem.org",
-                295
+                "calendar.google.com",
+                352
             ],
             [
                 "www.instagram.com",
@@ -377,7 +396,7 @@
         "18": [
             [
                 "www.google.com",
-                615
+                624
             ],
             [
                 "www.instagram.com",
@@ -398,12 +417,12 @@
         ],
         "19": [
             [
-                "www.imperial.ac.uk",
-                454
+                "www.instagram.com",
+                716
             ],
             [
-                "www.instagram.com",
-                304
+                "www.imperial.ac.uk",
+                454
             ],
             [
                 "www.google.com",
@@ -420,12 +439,12 @@
         ],
         "20": [
             [
-                "www.instagram.com",
-                447
+                "www.google.com",
+                289
             ],
             [
-                "www.google.com",
-                272
+                "www.instagram.com",
+                91
             ],
             [
                 "www.glassdoor.co.uk",
@@ -443,11 +462,11 @@
         "21": [
             [
                 "www.google.com",
-                556
+                569
             ],
             [
                 "www.instagram.com",
-                163
+                235
             ],
             [
                 "edstem.org",
@@ -465,7 +484,7 @@
         "22": [
             [
                 "www.instagram.com",
-                341
+                538
             ],
             [
                 "felix.zeevox.net",
@@ -473,7 +492,7 @@
             ],
             [
                 "www.google.com",
-                51
+                53
             ],
             [
                 "gitlab.doc.ic.ac.uk",
@@ -481,13 +500,13 @@
             ],
             [
                 "github.com",
-                44
+                39
             ]
         ],
         "23": [
             [
                 "www.instagram.com",
-                543
+                590
             ],
             [
                 "mail.google.com",
@@ -510,22 +529,25 @@
     "top_search_terms_n": {
         "CELCAT Calendar": 262,
         "Google Maps": 571,
-        "Instagram": 1259,
+        "Instagram": 1318,
         "LinkedIn": 147,
-        "Stories \u2022 Instagram": 1512
+        "Stories \u2022 Instagram": 1831
     },
     "top_visited_n": {
-        "eactivities.union.ic.ac.uk": 877,
-        "edstem.org": 952,
-        "github.com": 1432,
+        "eactivities.union.ic.ac.uk": 878,
+        "edstem.org": 983,
+        "github.com": 1457,
         "www.imperial.ac.uk": 1253,
-        "www.instagram.com": 4274
+        "www.instagram.com": 4770
     },
     "typical": [
         "ssa compiler",
         "#",
         "scala fix",
         "scalatest featurespec",
-        "scala @main with args"
+        "scala @main with args",
+        "scala include resources",
+        "scala include resources",
+        "gulp css"
     ]
 }

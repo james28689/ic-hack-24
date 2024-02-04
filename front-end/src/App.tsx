@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import FingerprintJS from "@fingerprintjs/fingerprintjs"
 import Scroller from "./components/scroller";
 import Result from "./result";
 import Spline from '@splinetool/react-spline';
@@ -9,9 +8,14 @@ function App() {
   const [result, setResult] = useState(null as Result | null);
   useEffect(() => {
     const setFP = async () => {
-      const fp = await FingerprintJS.load();
-      const { visitorId } = await fp.get();
-      fetch(`${import.meta.env.VITE_API_URL}/${visitorId}`)
+      fetch(`${import.meta.env.VITE_API_URL}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Client-Id": "client-fingerprint!!",
+          "Access-Control-Allow-Origin": "*"
+        }
+      })
         .then(res => res.json())
         .then(data => setResult(data));
     };

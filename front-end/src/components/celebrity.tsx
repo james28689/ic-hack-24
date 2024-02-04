@@ -12,9 +12,9 @@ interface CelebrityProps {
 }
 
 
-function useParallax(value: MotionValue<number>, distance: number) {
-    return useTransform(value, [0, 1], [-distance, distance]);
-}
+// function useParallax(value: MotionValue<number>, distance: number) {
+//     return useTransform(value, [0, 1], [-distance, distance]);
+// }
 
 
 function Celebrity({ most_searched_people }: CelebrityProps) {

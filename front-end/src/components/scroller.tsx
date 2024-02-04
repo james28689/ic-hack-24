@@ -10,6 +10,7 @@ import Page3 from "./page3";
 import Result from "../result";
 import RickRolled from "./rick-rolled";
 import Celebrity from "./celebrity";
+import Incognito from "./incognito";
 
 interface ScrollerProps {
   result: Result | null
@@ -32,6 +33,7 @@ export default function Scroller({ result }: ScrollerProps) {
       {result && <Page3 top_10_search_terms={result.top_search_terms_n}></Page3>}
       {result && <RickRolled outliers={result.outliers}></RickRolled>}
       {result && <Celebrity most_searched_people={result.most_searched_people} />}
+      {result && <Incognito num={result.incognito_search}></Incognito>}
       <motion.div className="progress" style={{ scaleX }} />
     </>
   );
