@@ -12,9 +12,11 @@ ENV PYTHONUNBUFFERED=1 \
 
 WORKDIR /app
 
-COPY ./pyproject.toml ./ichack /app/
-COPY ./ichack /app/ichack/
+# Install dependencies
+COPY ./requirements.txt /app/
+RUN pip install -r requirements.txt
 
-RUN pip install .
+# Once the dependencies are installed, copy the rest of the application code
+COPY ./ichack /app/ichack/
 
 CMD ["flask", "run", "--port", "8080", "--host", "0.0.0.0"]
