@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import FingerprintJS from "@fingerprintjs/fingerprintjs"
 import Holder from "./components/holder";
+import Scroller from "./components/scroller";
 
 interface Result {
   top_5_visited: { website: string, visits: number }[];
@@ -23,10 +24,7 @@ function App() {
   }, []);
 
   return (
-    <div className="">
-      <h1>Your Browser Wrapped</h1>
-      <h3>Browser Fingerprint: {fingerprint}</h3>
-    </>
+    <Scroller></Scroller>
   )
 }
 
