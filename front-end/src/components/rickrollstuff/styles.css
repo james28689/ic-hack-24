@@ -7,12 +7,11 @@
   
   
   .progress {
-    position: fixed;
+    /* position: fixed; */
     left: 0;
     right: 0;
     height: 5px;
     background: var(--accent);
-    bottom: 100px;
   }
   
   .parallax {
@@ -26,13 +25,12 @@
   }
   
   .parallax .scroller {
+    text-shadow: gray;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 64px;
     display: flex;
     white-space: nowrap;
-    display: flex;
-    flex-wrap: nowrap;
   }
   
   .parallax span {

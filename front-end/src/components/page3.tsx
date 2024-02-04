@@ -38,8 +38,9 @@ function Page3({ top_10_search_terms }: Page3Props) {
                     <h1 className="bold w-full justify-center align-middle flex">
                         Let's see your most common search terms!
                     </h1>
+                    <hr className="mx-4" />
                 </motion.div>
-                <div className="grid grid-cols-12  grid-rows-12 border-2">
+                <div className="grid grid-cols-12  grid-rows-12">
                     <motion.div
                         initial={{ scale: 0 }}
                         whileInView={{ scale: 1 }}

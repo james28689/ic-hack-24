@@ -14,6 +14,7 @@ const Term = ({ text, num }: TermProps) => {
     return (
         <div className="example-container">
             <motion.div
+                className=" shadow-2xl"
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
                 whileHover={{ scale: 1 }}

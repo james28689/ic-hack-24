@@ -33,7 +33,6 @@ function Page1() {
                     </h1>
                 </motion.div>
             </div>
-            <motion.h2 style={{ y }}>{`#001`}</motion.h2>
         </section>
     );
 }

@@ -16,7 +16,7 @@ interface TopSiteCardProps {
 function TopSiteCard({ url, num, delay }: TopSiteCardProps) {
     return (
         <motion.div
-            className=" py-2"
+            className=" py-2 bg-pink"
             initial={{ x: '-100%', opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ type: "spring", delay: delay, duration: 1.7 }}

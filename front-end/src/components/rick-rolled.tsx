@@ -6,8 +6,8 @@ import {
     useTransform,
     MotionValue
 } from "framer-motion";
-import Spline from '@splinetool/react-spline';
 import Title from "./rickrollstuff/title";
+import Strange from "./rickrollstuff/strange-crad";
 
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -28,21 +28,13 @@ function RickRolled({ rolledCount }: RickRolledProps) {
         <section>
             <div ref={ref}>
                 <Title />
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ type: "spring", delay: 1, duration: 1 }}
-                >
-
-                    <h1 className=" h-20 text-4xl bold w-full justify-center align-middle flex">
-                        You were rick rolled a total of {rolledCount} time{(rolledCount != 1) && "s"}!
-                        {(rolledCount == 0) && "Damn, not even once?"}
-                    </h1>
-                </motion.div>
-
-                <motion.h2 style={{ y }}>
-                    <Spline scene="https://prod.spline.design/5OrQ4hfAKzxWuOI6/scene.splinecode" />
-                </motion.h2>
+                <div className="flex flex-col items-center justify-start mb-2">
+                    <Strange query="strange 1" time="12:00 pm" delay={1}></Strange>
+                    <Strange query="stranwef    werf    wefge 2" time="12:00 pm" delay={1.2}></Strange>
+                    <Strange query="strange 3" time="12:00 pm" delay={1.4}></Strange>
+                    <Strange query="nge 4" time="12:00 pm" delay={1.6}></Strange>
+                    <Strange query="strange 5" time="12:00 pm" delay={1.8}></Strange>
+                </div>
             </div>
         </section>
     )

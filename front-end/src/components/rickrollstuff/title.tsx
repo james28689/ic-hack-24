@@ -76,7 +76,7 @@ function ParallaxText({ children, baseVelocity = 100 }: ParallaxProps) {
 export default function Title() {
 
     return (
-        <section className="flex-col ">
+        <section className="flex-col h-20">
             {/* <ParallaxText baseVelocity={5}>Strange Strange Strange</ParallaxText> */}
 
             <ParallaxText baseVelocity={5}>Strangest Queries Strangest Queries</ParallaxText>
