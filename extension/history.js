@@ -26,14 +26,14 @@ function getBrowsingHistory(maxId) {
 
 function sendHistoryToService(data, clientId) {
   const stringifiedData = JSON.stringify(data);
-  return fetch("https://ichack24.zeevox.net", {
+  return fetch("https://ichack24.zeevox.net/api", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Accept": "application/json",
       "Client-Id": clientId,
     },
-    body: stringifiedData,
-    mode: "no-cors",
+    body: stringifiedData
   });
 }
 
