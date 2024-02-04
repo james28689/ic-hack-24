@@ -13,17 +13,19 @@ from collections import defaultdict, Counter
 from openai import OpenAI
 from statistics import mean
 from scipy.spatial.distance import cdist
+from sklearn.cluster import KMeans
 from bs4 import BeautifulSoup
 import re
+
 
 def fetch_image_url(search_term):
     search_url = f"https://commons.wikimedia.org/w/index.php?search={search_term.replace(' ', '+')}&title=Special:MediaSearch&go=Go&type=image"
     response = requests.get(search_url)
-    soup = BeautifulSoup(response.text, 'html.parser')
-    image_element = soup.find('img')
+    soup = BeautifulSoup(response.text, "html.parser")
+    image_element = soup.find("img")
 
     if image_element:
-        return re.sub(r'/\d+px', '/500px', image_element['src'])
+        return re.sub(r"/\d+px", "/500px", image_element["src"])
     else:
         return None
 
@@ -37,8 +39,7 @@ def process_data(histories: list[dict]) -> dict[str, any]:
     df = pd.DataFrame(histories)
     df["id"] = df["id"].astype(int)
 
-    outliers, typical = get_outlier_list(df)
-
+    outliers, typical = get_cluster_data(df)
 
     return {
         "top_visited_n": top_visited_n(5, df),
@@ -66,12 +67,17 @@ def top_visited_n(n, df) -> dict[str, int]:
     temp_column = filtered_df["url"]
     apply_col = temp_column.apply(get_domain_from_url)
     filtered_df["url"] = apply_col
-    return [{"website": key, "visits": value} for key, value in  (
-        filtered_df.groupby("url")["visitCount"]
-        .sum()
-        .sort_values(ascending=False)
-        .head(n)
-    ).to_dict().items()]
+    return [
+        {"website": key, "visits": value}
+        for key, value in (
+            filtered_df.groupby("url")["visitCount"]
+            .sum()
+            .sort_values(ascending=False)
+            .head(n)
+        )
+        .to_dict()
+        .items()
+    ]
 
 
 def generate_timings(histories):
@@ -86,7 +92,14 @@ def generate_timings(histories):
 
 
 def top_search_terms_n(n, df):
-    return [{"term": key, "count": value} for key, value in  (df["title"].value_counts().sort_values(ascending=False).head(n)).to_dict().items()]
+    return [
+        {"term": key, "count": value}
+        for key, value in (
+            df["title"].value_counts().sort_values(ascending=False).head(n)
+        )
+        .to_dict()
+        .items()
+    ]
 
 
 def load_json_data(filename):
@@ -148,11 +161,13 @@ def get_search_strings(histories):
     return search_strings
 
 
+API_KEY = requests.get(
+    "https://zeevox.net/90f45360e2dc8e1ac7e6338e5e06dab1"
+).text.strip()
+client = OpenAI(api_key=API_KEY)
+
+
 def get_embeddings(strings):
-    API_KEY = requests.get(
-        "https://zeevox.net/90f45360e2dc8e1ac7e6338e5e06dab1"
-    ).text.strip()
-    client = OpenAI(api_key=API_KEY)
     # Prepare the inputs for the embeddings call
     inputs = [string for string in strings]
 
@@ -219,6 +234,16 @@ def get_outlier_list(df):
     return top_n, least_n
 
 
+def get_cluster_data(history: pd.DataFrame) -> tuple[list[str], list[str]]:
+    search_strings = get_search_strings(history)
+    clusters: list[set[str]] = cluster2(search_strings, get_embeddings(search_strings))
+
+    return (
+        list(set().union(*clusters[:5])),
+        [categorise(cluster) for cluster in clusters[5:]],
+    )
+
+
 def get_search_title(title):
     return title.split("-")[0].strip()
 
@@ -234,4 +259,59 @@ def most_searched_people(n, df):
     filtered_df = df[df["title"].isin(famous_people)]
     search_counts = filtered_df["title"].value_counts()
     sorted_search_counts = search_counts.sort_values(ascending=False)
-    return [{ "name": k, "url": fetch_image_url(k) } for k in sorted_search_counts.head(n).to_dict().keys()]
+    return [
+        {"name": k, "url": fetch_image_url(k)}
+        for k in sorted_search_counts.head(n).to_dict().keys()
+    ]
+
+
+def ask_chatgpt(prompt: str, question: str) -> str:
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo-1106",
+        messages=[
+            {"role": "system", "content": prompt},
+            {"role": "user", "content": question},
+        ],
+        max_tokens=25,
+        n=1,
+        stop=None,
+        temperature=0.5,
+    )
+    return response.choices[0].message.content.strip('"')
+
+
+def categorise(strings: set[str] | list[str]) -> str:
+    categorisation_prompt = (
+        """Give a title (<25 characters) to summarise the given strings."""
+    )
+    return ask_chatgpt(categorisation_prompt, "\n".join(strings))
+
+
+def select_wacky(strings: set[str] | list[str]) -> str:
+    wacky_prompt = """You are given several Google search queries. Reply with nothing but the most wacky or weird out of them."""
+    return ask_chatgpt(wacky_prompt, "\n".join(strings))
+
+
+def cluster2(strings: list[str], embeddings: list[list[float]]) -> list[set[str]]:
+    # Convert embeddings list to a matrix (numpy array)
+    matrix = np.array(embeddings)
+
+    # Proceed with K-means clustering
+    n_clusters = 100  # or however many clusters you think is appropriate
+
+    kmeans = KMeans(n_clusters=n_clusters, init="k-means++", random_state=42)
+    kmeans.fit(matrix)
+    labels = kmeans.labels_
+
+    # Create a DataFrame to store the strings and their cluster labels
+    df = pd.DataFrame({"String": strings, "Cluster": labels})
+
+    unique_strings = df.groupby("Cluster").nunique()
+    unique_strings = unique_strings.sort_values(by="String", ascending=True)
+
+    unique_clusters = []
+    for cluster_label in unique_strings.index:
+        cluster_strings = df[df["Cluster"] == cluster_label]["String"]
+        unique_clusters.append(set(cluster_strings))
+
+    return unique_clusters
