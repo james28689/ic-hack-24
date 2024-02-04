@@ -161,7 +161,7 @@ def get_search_strings(histories):
             # Extract the search query parameter 'q' if it exists
             if "q" in query_params:
                 search_query = query_params["q"][0]  # Take the first 'q' parameter
-                search_strings.append(search_query)
+                search_strings.append(search_query.strip("\""))
 
     return search_strings
 
@@ -173,17 +173,29 @@ client = OpenAI(api_key=API_KEY)
 
 
 def get_embeddings(strings):
-    # Prepare the inputs for the embeddings call
-    inputs = [string for string in strings]
+    embeddings = []
+    # Chunk the strings if there are more than 2048
+    if len(strings) > 2048:
+        chunked_strings = [strings[i:i+2048] for i in range(0, len(strings), 2048)]
 
-    # Use the embeddings endpoint with the appropriate model
-    response = client.embeddings.create(
-        model="text-embedding-3-small", input=inputs  # or another suitable model
-    )
+        # Process each chunk of strings separately
+        for inputs in chunked_strings:
+            # Use the embeddings endpoint with the appropriate model
+            response = client.embeddings.create(
+                model="text-embedding-3-small", input=inputs  # or another suitable model
+            )
 
-    # Extract embeddings from the response
-    # print(response['data'])
-    embeddings = [item.embedding for item in response.data]
+            # Extract embeddings from the response
+            embeddings.extend([item.embedding for item in response.data])
+    else:
+        # Use the embeddings endpoint with the appropriate model
+        response = client.embeddings.create(
+            model="text-embedding-3-small", input=strings  # or another suitable model
+        )
+
+        # Extract embeddings from the response
+        embeddings = [item.embedding for item in response.data]
+
     return embeddings
 
 
