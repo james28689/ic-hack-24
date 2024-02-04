@@ -8,11 +8,13 @@ function App() {
   const [result, setResult] = useState(null as Result | null);
   useEffect(() => {
     const setFP = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get("id");
       fetch(`${import.meta.env.VITE_API_URL}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "Client-Id": "client-fingerprint!!",
+          "Client-Id": id ? id : "",
           "Access-Control-Allow-Origin": "*"
         }
       })
