@@ -27,12 +27,15 @@ function Celebrity({ most_searched_people }: CelebrityProps) {
                     <hr className="mx-48" />
                 </motion.div>
                 <motion.div
+                    className="flex items-center justify-center align-middle h-full"
                     initial={{ x: '-100%', opacity: 0 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ type: "spring", delay: 1, duration: 1 }}
                 >
-                    <img src={most_searched_people[0].url} alt="" />
-                    <p>{most_searched_people[0].name}</p>
+                    {most_searched_people.length > 0 ? <>
+                        <img className=" m-auto max-w-80 max-h-fit " src={most_searched_people[0].url} alt="" />
+                        <p>{most_searched_people[0].name}</p>
+                    </> : <div className=" text-center ">Looks like you haven't been looking up many celebrities!</div>}
                 </motion.div>
             </div>
         </section>

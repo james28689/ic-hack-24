@@ -20,11 +20,9 @@ const Term = ({ text, num }: TermProps) => {
                 whileHover={{ scale: 1 }}
                 whileInView={{ scale: 0.8 }}
                 whileTap={{ scale: 0.8 }} >
-                <div className="flex flex-col bg-opacity-30 bg-gradient-to-b from-blue to-white  h-full items-center justify-center align-middle ">
+                <div className="flex flex-col bg-gradient-to-b from-blue to-white  h-full items-center justify-center align-middle ">
                     <div className=" mt-10 text-xl text-center">
-                        {text}
-                    </div>
-                    <div className={`transition-all duration-100 text-center ${isHovered ? "opacity-100" : "opacity-0"}`}>
+                        {text} <br />
                         Searched {num} times
                     </div>
                 </div>

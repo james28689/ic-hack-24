@@ -20,7 +20,7 @@ function Page1() {
                     whileInView={{ opacity: 1 }}
                     transition={{ delay: 1, duration: 1 }}
                 >
-                    <h1 className=" h-20 text-4xl bold w-full justify-center align-middle flex">
+                    <h1 className=" h-20 text-6xl font-extrabold w-full justify-center align-middle flex">
                         Welcome to your browser wrapped!
                     </h1>
                 </motion.div>

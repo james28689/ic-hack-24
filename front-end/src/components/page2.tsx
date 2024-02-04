@@ -7,7 +7,6 @@ import {
     MotionValue
 } from "framer-motion";
 import TopSiteCard from "./top-5-site-card";
-import Spline from '@splinetool/react-spline';
 
 
 function useParallax(value: MotionValue<number>, distance: number) {
@@ -33,7 +32,7 @@ function Page2({ top_visited_n }: Page2Props) {
                     transition={{ type: "spring", delay: 1, duration: 1 }}
                 >
                     <h1 className=" h-20 text-4xl bold w-full justify-center align-middle flex">
-                        Your most visited websites were...
+                        Your most common search categories...
                     </h1>
                 </motion.div>
                 <motion.h2 style={{ y }}>

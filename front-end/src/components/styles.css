@@ -176,8 +176,8 @@ body {
     position: fixed;
     left: 0;
     right: 0;
-    height: 5px;
+    height: 15px;
     background: var(--accent);
-    bottom: 100px;
+    bottom: 10px;
   }
   

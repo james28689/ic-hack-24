@@ -14,7 +14,7 @@ export default {
       pink2: "#FFC0D9",
       orange: "#EF4040",
       yellow: "#FFA732",
-      blue: "#7BD3EA"
+      blue: "#86E7F1"
     },
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
