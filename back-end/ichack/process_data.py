@@ -240,7 +240,10 @@ def get_cluster_data(history: pd.DataFrame) -> tuple[list[str], list[str]]:
 
     return (
         list(set().union(*clusters[:5])),
-        [categorise(cluster) for cluster in clusters[5:]],
+        [
+            {"title": categorise(cluster), "count": len(cluster)}
+            for cluster in clusters[-8:]
+        ],
     )
 
 
