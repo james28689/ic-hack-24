@@ -1,7 +1,6 @@
 
 import { motion } from "framer-motion";
 import "./styles.css";
-import { useState } from "react";
 
 interface TermProps {
     text: string;
@@ -9,14 +8,11 @@ interface TermProps {
 }
 
 const Term = ({ text, num }: TermProps) => {
-    const [isHovered, setHovered] = useState(false);
 
     return (
         <div className="example-container bg-opacity-30">
             <motion.div
                 className="shadow-blue shadow-md bg-opacity-30"
-                onHoverStart={() => setHovered(true)}
-                onHoverEnd={() => setHovered(false)}
                 whileHover={{ scale: 1 }}
                 whileInView={{ scale: 0.8 }}
                 whileTap={{ scale: 0.8 }} >
