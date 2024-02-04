@@ -26,6 +26,7 @@ def process_data(histories: list[dict]) -> dict[str, any]:
 
     outliers, typical = get_outlier_list(df)
 
+
     return {
         "top_visited_n": top_visited_n(5, df),
         "top_search_terms_n": top_search_terms_n(5, df),
@@ -52,12 +53,12 @@ def top_visited_n(n, df) -> dict[str, int]:
     temp_column = filtered_df["url"]
     apply_col = temp_column.apply(get_domain_from_url)
     filtered_df["url"] = apply_col
-    return (
+    return [{"website": key, "visits": value} for key, value in  (
         filtered_df.groupby("url")["visitCount"]
         .sum()
         .sort_values(ascending=False)
         .head(n)
-    ).to_dict()
+    ).to_dict().items()]
 
 
 def generate_timings(histories):
@@ -72,7 +73,7 @@ def generate_timings(histories):
 
 
 def top_search_terms_n(n, df):
-    return (df["title"].value_counts().sort_values(ascending=False).head(n)).to_dict()
+    return [{"term": key, "count": value} for key, value in  (df["title"].value_counts().sort_values(ascending=False).head(n)).to_dict().items()]
 
 
 def load_json_data(filename):
@@ -221,3 +222,4 @@ def most_searched_people(n, df):
     search_counts = filtered_df["title"].value_counts()
     sorted_search_counts = search_counts.sort_values(ascending=False)
     return sorted_search_counts.head(n).to_dict()
+
