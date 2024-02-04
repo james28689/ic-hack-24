@@ -2,22 +2,19 @@ import "./styles.css";
 import {
   motion,
   useScroll,
-  useTransform,
-  MotionValue,
   useSpring // Add this import
 } from "framer-motion";
 import Page1 from "./page1";
 import Page2 from "./page2";
 import Page3 from "./page3";
-// import { useRef } from "react";
+import Result from "../result";
 
-function useParallax(value: MotionValue<number>, distance: number) {
-  return useTransform(value, [0, 1], [-distance, distance]);
+interface ScrollerProps {
+  result: Result | null
 }
 
-export default function Scroller() {
+export default function Scroller({ result }: ScrollerProps) {
   const { scrollYProgress } = useScroll();
-  const y = useParallax(scrollYProgress, 300);
 
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
@@ -28,10 +25,8 @@ export default function Scroller() {
   return (
     <>
       <Page1></Page1>
-      <motion.div style={{ y }}>
-        <img className=" " src={"./blocks.svg"} />
-      </motion.div>
-      <Page2></Page2>
+      {/* <WelcomePage></WelcomePage> */}
+      {result && <Page2 topSites={result.top_5_visited}></Page2>}
       <Page3></Page3>
       <motion.div className="progress" style={{ scaleX }} />
     </>
