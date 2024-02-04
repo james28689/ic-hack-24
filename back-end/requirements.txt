@@ -4,3 +4,4 @@ pandas
 requests
 openai
 scipy
+BeautifulSoup4
