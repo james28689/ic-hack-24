@@ -1,0 +1,8 @@
+{
+  "manifest_version": 3,
+  "name": "WebWrapped",
+  "version": "1.0",
+  "description": "Spotify wrapped for your web history!",
+  "permissions": ["history"],
+  "action": { "default_popup": "popup.html" }
+}
