@@ -315,9 +315,9 @@ def get_outlier_list(df):
     strings = get_search_strings(df)
     embeddings = get_embeddings(strings)
 
-    n = 5
+    n = 8
     top_outliers, least_outliers = find_outliers(embeddings, n)
-    top_n = [strings[i] for i in top_outliers]
+    top_n = [strings[i] for i in top_outliers[:5]]
     least_n = [strings[i] for i in least_outliers]
 
     return top_n, least_n

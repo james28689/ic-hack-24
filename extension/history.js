@@ -47,3 +47,16 @@ async function processUserHistory(clientId) {
     console.error("An error occurred while processing user history:", error);
   }
 }
+
+const phrases = ["Performing analysis...", "Waiting for API response...", "Fetching data..."];
+let currentPhraseIndex = 0;
+
+function cyclePhrases() {
+    const phraseElement = document.getElementById('currentPhrase');
+    phraseElement.innerHTML = phrases[currentPhraseIndex];
+    currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+}
+
+// Change phrase every 3 seconds to match CSS animation
+setInterval(cyclePhrases, 3000);
+
