@@ -18,8 +18,8 @@ const Term = ({ text, num }: TermProps) => {
                 whileTap={{ scale: 0.8 }} >
                 <div className="flex flex-col bg-gradient-to-b from-blue to-white  h-full items-center justify-center align-middle ">
                     <div className=" mt-10 text-xl text-center">
-                        {text} <br />
-                        Searched {num} times
+                        <p className="text-md font-semibold">{text}</p>
+                        <p className="text-sm">Searched {num} times</p>
                     </div>
                 </div>
 

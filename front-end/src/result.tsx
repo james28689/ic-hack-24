@@ -3,7 +3,8 @@ interface Result {
     top_search_terms_n: { term: string, count: number }[];
     incognito_search: number;
     outliers: string[];
-    most_searched_people: { name: string, url: string }[]
+    most_searched_people: { name: string, url: string }[];
+    typical: { title: string, count: number }[];
 }
 
 export default Result;
