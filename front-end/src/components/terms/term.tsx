@@ -16,11 +16,11 @@ const Term = ({ text, num }: TermProps) => {
             <motion.div
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
-                whileHover={{ scale: 1.2 }}
+                whileHover={{ scale: 1 }}
+                whileInView={{ scale: 0.8 }}
                 whileTap={{ scale: 0.8 }} >
-                <div className="flex flex-col justify-center align-middle">
-                    <div className="h-4"></div>
-                    <div className="text-xl text-center">
+                <div className="flex flex-col justify-center align-middle items-center">
+                    <div className=" mt-10 text-xl text-center">
                         {text}
                     </div>
                     <motion.div
@@ -28,7 +28,7 @@ const Term = ({ text, num }: TermProps) => {
                         style={{ opacity: isHovered ? 1 : 0 }}
                         transition={{ duration: 1 }}
                     >
-                        <div>
+                        <div className=" text-center">
                             Searched {num} times
                         </div>
                     </motion.div>
