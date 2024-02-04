@@ -13,6 +13,19 @@ from collections import defaultdict, Counter
 from openai import OpenAI
 from statistics import mean
 from scipy.spatial.distance import cdist
+from bs4 import BeautifulSoup
+import re
+
+def fetch_image_url(search_term):
+    search_url = f"https://commons.wikimedia.org/w/index.php?search={search_term.replace(' ', '+')}&title=Special:MediaSearch&go=Go&type=image"
+    response = requests.get(search_url)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    image_element = soup.find('img')
+
+    if image_element:
+        return re.sub(r'/\d+px', '/500px', image_element['src'])
+    else:
+        return None
 
 
 def extract_hour_from_timestamp(timestamp):
@@ -221,5 +234,4 @@ def most_searched_people(n, df):
     filtered_df = df[df["title"].isin(famous_people)]
     search_counts = filtered_df["title"].value_counts()
     sorted_search_counts = search_counts.sort_values(ascending=False)
-    return sorted_search_counts.head(n).to_dict()
-
+    return [{ "name": k, "url": fetch_image_url(k) } for k in sorted_search_counts.head(n).to_dict().keys()]
