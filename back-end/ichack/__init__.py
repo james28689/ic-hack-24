@@ -8,6 +8,7 @@ cors = CORS(app)
 
 processed: dict[str, any] = {}
 
+
 @app.route("/api", methods=["POST"])
 def process_request():
     # Get the Client-Id header
@@ -24,7 +25,11 @@ def process_request():
     # Save the processed data to the database
     processed[client_id] = data
 
-    return jsonify({"client-id": client_id, "message": "Data processed successfully!"}), 200
+    return (
+        jsonify({"client-id": client_id, "message": "Data processed successfully!"}),
+        200,
+    )
+
 
 @app.route("/api", methods=["GET"])
 def get_processed_data():
@@ -39,6 +44,7 @@ def get_processed_data():
         return jsonify({"error": "Data not found"}), 404
 
     return jsonify(data), 200
+
 
 if __name__ == "__main__":
     app.run(debug=True)
