@@ -6,19 +6,19 @@ import {
     useTransform,
     MotionValue
 } from "framer-motion";
-import TopSiteCard from "./top-5-site-card";
 import Spline from '@splinetool/react-spline';
+import Title from "./rickrollstuff/title";
 
 
 function useParallax(value: MotionValue<number>, distance: number) {
     return useTransform(value, [0, 1], [-distance, distance]);
 }
 
-interface Page2Props {
-    topSites: { website: string, visits: number }[]
+interface RickRolledProps {
+    rolledCount: number
 }
 
-function Page2({ topSites }: Page2Props) {
+function RickRolled({ rolledCount }: RickRolledProps) {
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
     const y = useParallax(scrollYProgress, 300);
@@ -27,22 +27,19 @@ function Page2({ topSites }: Page2Props) {
     return (
         <section>
             <div ref={ref}>
+                <Title />
                 <motion.div
-                    initial={{ x: '-100%', opacity: 0 }}
-                    whileInView={{ x: 0, opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     transition={{ type: "spring", delay: 1, duration: 1 }}
                 >
+
                     <h1 className=" h-20 text-4xl bold w-full justify-center align-middle flex">
-                        Your most visited websites were...
+                        You were rick rolled a total of {rolledCount} time{(rolledCount != 1) && "s"}!
+                        {(rolledCount == 0) && "Damn, not even once?"}
                     </h1>
                 </motion.div>
-                <div className="flex flex-col justify-center align-middle">
-                    <TopSiteCard url={topSites[0].website} num={topSites[0].visits} delay={2.1} />
-                    <TopSiteCard url={topSites[1].website} num={topSites[1].visits} delay={2.2} />
-                    <TopSiteCard url={topSites[2].website} num={topSites[2].visits} delay={2.3} />
-                    <TopSiteCard url={topSites[3].website} num={topSites[3].visits} delay={2.4} />
-                    <TopSiteCard url={topSites[4].website} num={topSites[4].visits} delay={2.5} />
-                </div>
+
                 <motion.h2 style={{ y }}>
                     <Spline scene="https://prod.spline.design/5OrQ4hfAKzxWuOI6/scene.splinecode" />
                 </motion.h2>
@@ -51,4 +48,4 @@ function Page2({ topSites }: Page2Props) {
     )
 }
 
-export default Page2
+export default RickRolled
