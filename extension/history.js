@@ -48,6 +48,38 @@ async function processUserHistory(clientId) {
   }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const startProcessButton = document.getElementById('startProcessButton');
+  const viewResultsButton = document.getElementById('viewResultsButton');
+  const waitingPhrases = document.getElementById('waitingPhrases');
+  const loadingContainer = document.querySelector('.loading-container'); // Changed to use class selector
+  const clientId = 'client-fingerprint!!'; // Replace with actual client ID
+
+  startProcessButton.addEventListener('click', function() {
+      startProcessButton.style.display = 'none'; // Hide the start button
+      waitingPhrases.style.display = 'block';
+      loadingContainer.style.display = 'flex'; // Now correctly references the element
+      processUserHistory(clientId).then(() => {
+          viewResultsButton.style.display = 'block'; // Show the results button
+          waitingPhrases.style.display = 'none';
+          loadingContainer.style.display = 'none'; // Now correctly references the element
+      }).catch(error => {
+          console.error("An error occurred while processing user history:", error);
+          // Handle error (e.g., show error message to the user)
+      });
+  });
+
+  viewResultsButton.addEventListener('click', function() {
+      window.open('https://nothing-2-834cc.web.app/', '_blank'); // Adjust URL as needed
+  });
+});
+
+// Include other functions here as well (cyclePhrases, etc.)
+
+
+// Include other functions here as well (cyclePhrases, etc.)
+
+
 const phrases = ["Performing analysis...", "Waiting for API response...", "Fetching data..."];
 let currentPhraseIndex = 0;
 
@@ -59,4 +91,6 @@ function cyclePhrases() {
 
 // Change phrase every 3 seconds to match CSS animation
 setInterval(cyclePhrases, 3000);
+
+
 
