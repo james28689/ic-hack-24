@@ -184,7 +184,7 @@ def find_outlier_index(embeddings):
     return outlier_index
 
 
-def find_outliers(embeddings, n=5):
+def find_outliers(embeddings, n=8):
     # First, identify and remove duplicate embeddings
     unique_embeddings, indices = np.unique(embeddings, return_index=True, axis=0)
 
